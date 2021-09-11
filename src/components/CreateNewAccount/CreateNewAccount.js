@@ -1,16 +1,27 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 
 import Input from '../Layout/Input/Input';
 import Button from '../Layout/Button/Button';
 
-class Login extends Component {
+class CreateNewAccount extends Component {
     state = {
         controls: {
-            identifier : {
+            username : {
                 config: {
                     type: 'string',
-                    placeholder: 'Email or Username',
+                    placeholder: 'Username',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                touched: false
+            },
+            email : {
+                config: {
+                    type: 'email',
+                    placeholder: 'Email',
                 },
                 value: '',
                 validation: {
@@ -32,9 +43,22 @@ class Login extends Component {
                 valid: false,
                 touched: false
             },
+            passwordRepeat: {
+                config: {
+                    type: 'password',
+                    placeholder: 'Repeat password',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 5,
+                    confirmed: true
+                },
+                valid: false,
+                touched: false
+            },
         },
-        logged: false
-    };
+    }
 
 
     checkValidity(value, rules) {
@@ -48,6 +72,9 @@ class Login extends Component {
         }
         if(rules.maxLenght) {
             isValid = value.length <= rules.maxLenght && isValid;
+        }
+        if(rules.confirmed) {
+            isValid = value === this.state.controls.password.value;
         }
         return isValid;
     }
@@ -65,13 +92,17 @@ class Login extends Component {
         this.setState({controls: updatedControls});
     };
 
-    getToken = (ident, pass) => {
+    getToken = (user, mail, pass) => {
         let data = {
-            'identifier': ident,
+            'username': user,
+            'email': mail,
             'password': pass
         }
 
-        let url = 'https://recruitment.ultimate.systems/auth/local';
+
+        console.log(data)
+
+        let url = 'https://recruitment.ultimate.systems/auth/local/register';
 
         fetch(url,{method: 'POST',
         body:JSON.stringify(data),
@@ -79,13 +110,11 @@ class Login extends Component {
             'Content-Type': 'application/json',
             'accept': 'application/json'}
         }).then(response => console.log(response))
-        .then(this.setState({logged: true}))
     }
 
     handleSubmitForm = (e) => {
         e.preventDefault();
-        this.getToken(this.state.controls.identifier.value, this.state.controls.password.value, this.state.is);
-        
+        this.getToken(this.state.controls.username.value, this.state.controls.email.value, this.state.controls.passwordRepeat.value)
     }
 
     render() {
@@ -106,26 +135,18 @@ class Login extends Component {
                 touched={formElement.config.touched}
                 changed={(event) => this.inputChangedHandler(event, formElement.id)}
                 />
-        ));
-
-        let redirect = null;
-        if(this.state.logged === true){
-            redirect = <Redirect to='/main'/>
-        }
+        ))
+        
         return (
             <>
                 <h1>Login</h1>
-                
                 <form onSubmit={this.handleSubmitForm}>
                     {form}
-                    <Button>Login</Button>
+                    <Button>Create</Button>
                 </form>
-                {redirect}
-                <p>or</p>
-                <a href='/create_account'>create an account</a>
             </>
         )
     }
 }
 
-export default Login;
+export default CreateNewAccount;
