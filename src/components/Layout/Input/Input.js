@@ -6,7 +6,9 @@ const input = (props) => {
     const inputClasses = [inputElement];
 
     inputElement = <input className={inputClasses.join(' ')} 
-        {...props.config} 
+        {...props.config}
+        placecholder={props.placecholder}
+        id={props.id} 
         onChange={props.changed} 
         value={props.value} />
 

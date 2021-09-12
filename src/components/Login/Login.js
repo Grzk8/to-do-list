@@ -72,14 +72,13 @@ class Login extends Component {
         }
 
         let url = 'https://recruitment.ultimate.systems/auth/local';
-
+        
         fetch(url,{method: 'POST',
         body:JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
             'accept': 'application/json'}
-        }).then(response => console.log(response))
-        .then(this.setState({logged: true}))
+        }).then(response => {if(response.ok) {this.setState({logged: true})}})
     }
 
     handleSubmitForm = (e) => {
