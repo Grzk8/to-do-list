@@ -1,0 +1,35 @@
+.layout{
+    position: relative;
+    width: 1920px;
+    height: 1553px;
+    
+    background: #1A1A1A;
+
+    .logo{
+        position: absolute;
+    width: 333px;
+    height: 64px;
+    left: 40px;
+    top: 40px;
+    
+    font-family: ZCOOL KuaiLe;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 64px;
+    color: #FF9900;
+    background-color: #1A1A1A;
+    }
+
+    .mainContainer{
+        position: absolute;
+        width: 893px;
+        height: 1045px;
+        left: 513px;
+        top: 245px;
+        
+        background: #2D2D2D;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+    }
+}

@@ -112,7 +112,7 @@ class Login extends Component {
             redirect = <Redirect to='/main'/>
         }
         return (
-            <>
+            <div className='login'>
                 <h1>Login</h1>
                 
                 <form onSubmit={this.handleSubmitForm}>
@@ -122,7 +122,7 @@ class Login extends Component {
                 {redirect}
                 <p>or</p>
                 <a href='/create_account'>create an account</a>
-            </>
+            </div>
         )
     }
 }

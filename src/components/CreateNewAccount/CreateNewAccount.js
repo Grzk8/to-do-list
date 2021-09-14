@@ -138,13 +138,14 @@ class CreateNewAccount extends Component {
         ))
         
         return (
-            <>
-                <h1>Login</h1>
+            <div className='createAccount'>
+                <a className="goBack" href="http://localhost:3000/"></a>
+                <h1>Create an new account</h1>
                 <form onSubmit={this.handleSubmitForm}>
                     {form}
                     <Button>Create</Button>
                 </form>
-            </>
+            </div>
         )
     }
 }

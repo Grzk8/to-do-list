@@ -7,10 +7,12 @@ const input = (props) => {
 
     inputElement = <input className={inputClasses.join(' ')} 
         {...props.config}
+        className='InputElement'
         placecholder={props.placecholder}
         id={props.id} 
         onChange={props.changed} 
-        value={props.value} />
+        value={props.value}
+        />
 
     return (
         <div>
