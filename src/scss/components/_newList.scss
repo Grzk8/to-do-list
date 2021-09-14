@@ -1,0 +1,135 @@
+.listName input{
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    left:100px;
+    top: 40px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 28px;
+
+color: #454545;
+}
+
+.line{
+    position: absolute;
+width: 700px;
+height: 0px;
+left: 100px;
+top: 140px;
+
+border: 3px solid #FF9900;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.buttonSave{
+    position: absolute;
+width: 239px;
+height: 78px;
+left: 620px;
+top: 930px;
+
+background: #FF9900;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 42px;
+
+color: #FFFFFF;
+}
+
+.buttonCancel{
+    position: absolute;
+width: 239px;
+height: 78px;
+left: 30px;
+top: 930px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 48px;
+border-style: none;
+background-color: #2D2D2D;
+color: #FF9900;
+}
+
+.taskName{
+    position: absolute;
+width: 117px;
+height: 28px;
+left: 172px;
+top: 170px;
+border-style: none;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+background-color: #2D2D2D;
+color: #808080;
+}
+
+.addButton{
+    position: absolute;
+width: 128px;
+height: 44px;
+left: 700px;
+top: 230px;
+
+background: #FF9900;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+
+color: #FFFFFF;
+}
+
+.cancelTask{
+    position: absolute;
+width: 128px;
+height: 44px;
+left: 500px;
+top: 230px;
+
+background: #FF3D00;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+
+color: #FFFFFF;
+}
+
+.tasksList{
+    position: relative;
+width:91px;
+height: 28px;
+left: 183px;
+top: 250px;
+margin-top: 15px;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #FFFFFF;
+}
+

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Input from '../Layout/Input/Input';
 import Button from '../Layout/Button/Button'
-import List from './List';
+import List from './List/List';
 
 class NewList extends Component {
     state = {
@@ -36,7 +36,6 @@ class NewList extends Component {
           task: [...this.state.task, updatedTask]
         });
         console.log(this.state)
-
       }
 
       isDoneHandler = (event, id) => {
@@ -55,24 +54,39 @@ class NewList extends Component {
 
     render() {
     
-        let listName = <Input
-            //id={this.getId()}
-            value={this.state.listName}
-            changed={(event) => this.inputListNameHandler(event)}/>
-
+      let listName = <div className='listName'>
+        <Input
+          value={this.state.listName}
+          changed={(event) => this.inputListNameHandler(event)}/>
+          <div className='line'></div>
+      </div>
         
         return <>
-        <p>newList</p>
+
         {listName}
-        {this.state.task.map((tsk, index) => {
+
+        
+
+      <div className='tasks'>
+
+        <div className='list'>
+          {this.state.task.map((tsk, index) => {
           return <List name={tsk.name} isDone={tsk.isDone} taskId={tsk.taskId} isDoneHandler={(event)=> this.isDoneHandler(event, tsk.taskId)}/>
-        })}
-        <List task={this.state.task} isDone={this.state.isDone}/>
-        <form className="App" onSubmit={this.submitHandler}>
-       <input value={this.state.term} onChange={this.taskChangeHandler} />
-       <button>Submit</button>
-        </form>
-   
+          })}
+        </div>
+
+        <div className='tasks'>
+          <form className="App" onSubmit={this.submitHandler}>
+            <input className='taskName'placeholder='Task name' value={this.state.term} onChange={this.taskChangeHandler} />
+            <Button className='addButton'>Add</Button>
+          </form>
+          <Button className='cancelTask'>Cancel</Button>
+        </div>
+
+      </div>
+
+        <Button clicked={this.props.show} className='buttonCancel'>CANCEL</Button>
+        <Button className='buttonSave'>SAVE</Button>
         </>
     }
 }
