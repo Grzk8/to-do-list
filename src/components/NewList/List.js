@@ -2,8 +2,8 @@ import React from 'react';
 
 const List = props => (
   <ul>
-    {props.task.map((item, index) => 
-        <div>o<div></div><li key={index}>{item}</li></div>
+    {props.task.map((item) => 
+        <li key={item.taskId}><div>0</div>{item.name}</li>
     )}
   </ul>
 );
