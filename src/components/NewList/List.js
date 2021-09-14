@@ -2,9 +2,7 @@ import React from 'react';
 
 const List = props => (
   <ul>
-    {props.task.map((item) => 
-        <li key={item.taskId}><div>0</div>{item.name}</li>
-    )}
+        <li key={props.taskId}><div onClick={props.isDoneHandler}>{props.isDone}0</div>{props.name}</li>
   </ul>
 );
 

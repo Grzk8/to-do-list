@@ -9,11 +9,14 @@ class NewList extends Component {
         listName: '',
         date: new Date(),
         term: '',
-        task: []
+        isDone: false,
+        task: [
+          { name: null, isDone: false, taskId: null}
+        ]
     }
 
-    inputListNameHandler = (event,idd) => {
-    this.setState({listName: event.target.value, id:idd}) 
+    inputListNameHandler = (event) => {
+    this.setState({listName: event.target.value}) 
     console.log(this.state.listName, this.state.id) 
     }
 
@@ -36,12 +39,18 @@ class NewList extends Component {
 
       }
 
-      isDoneHandler = () => {
-        const tsk = [...this.state.task];
-        const done = tsk.isDone;
-        this.setState({task: !done})
+      isDoneHandler = (event, id) => {
 
-        console.log(this.state.isDone)
+        const taskIndex = this.state.task.findIndex(p =>{
+          return p.taskId === id
+        });
+        const tsk = {...this.state.task [taskIndex]};
+        tsk.isDone = !tsk.isDone;
+        const task = [...this.state.task];
+        task[taskIndex] = task;
+
+        this.setState({task: task})
+        console.log(this.state.task)
       }
 
     render() {
@@ -55,11 +64,14 @@ class NewList extends Component {
         return <>
         <p>newList</p>
         {listName}
-        <List task={this.state.task} isDone={this.z}/>
+        {this.state.task.map((tsk, index) => {
+          return <List name={tsk.name} isDone={tsk.isDone} taskId={tsk.taskId} isDoneHandler={(event)=> this.isDoneHandler(event, tsk.taskId)}/>
+        })}
+        <List task={this.state.task} isDone={this.state.isDone}/>
         <form className="App" onSubmit={this.submitHandler}>
        <input value={this.state.term} onChange={this.taskChangeHandler} />
        <button>Submit</button>
-   </form>
+        </form>
    
         </>
     }
