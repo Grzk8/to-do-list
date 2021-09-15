@@ -7,8 +7,9 @@ import List from './List/List';
 class NewList extends Component {
     state = {
         listName: '',
-        date: new Date(),
+        date: '',
         term: '',
+        id: '',
         isDone: false,
         task: [
           { name: null, isDone: false, taskId: null}
@@ -26,10 +27,13 @@ class NewList extends Component {
 
       submitHandler = (event) => {
         event.preventDefault()
+        const dateNow = new Date().toLocaleDateString();
         const updatedTask = {
             name: this.state.term,
             isDone: false,
-            taskId: Math.random()
+            id: Math.random(),
+            
+            date: dateNow,
         }
         this.setState({
           term: '',
@@ -39,9 +43,8 @@ class NewList extends Component {
       }
 
       isDoneHandler = (event, id) => {
-
         const taskIndex = this.state.task.findIndex(p =>{
-          return p.taskId === id
+          return p.id === id
         });
         const tsk = {...this.state.task [taskIndex]};
         tsk.isDone = !tsk.isDone;
@@ -50,6 +53,19 @@ class NewList extends Component {
 
         this.setState({task: task})
         console.log(this.state.task)
+      }
+
+      confirmHandler = (event) => {
+        
+        const data = this.state
+        let url = 'https://recruitment.ultimate.systems/to-do-lists'
+
+        fetch(url,{method:'POST',
+          body:JSON.stringify(data),
+          headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json'}
+        }).then(response => (console.log(response)))
       }
 
     render() {
@@ -86,7 +102,7 @@ class NewList extends Component {
       </div>
 
         <Button clicked={this.props.show} className='buttonCancel'>CANCEL</Button>
-        <Button className='buttonSave'>SAVE</Button>
+        <Button className='buttonSave' clicked={this.props.show, (event) => this.confirmHandler(event)}>SAVE</Button>
         </>
     }
 }

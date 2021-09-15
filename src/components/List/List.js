@@ -14,11 +14,30 @@ class List extends Component {
     backToListHandler = () => {
         this.setState({showNewList: false})
     }
+
+    logout() {
+        localStorage.clear();
+        window.location.href = '/';
+    }
+
+    loadData = () => {
+
+        let url = 'https://recruitment.ultimate.systems/to-do-lists/count';
+
+        fetch(url,{method:'GET',
+        body:JSON.stringify,
+        headers: {
+        'accept': 'application/json'}
+      }).then(response => (console.log(response)))
+    }
+
+
+
     render() {
 
         let list = <div>
-            <div className='backToList'></div>
-            <div className='backToListArrow'></div>
+            <div className='backToList' onClick={this.logout}></div>
+            <div className='backToListArrow' onClick={this.logout}></div>
 
             <div className='toDoList'>
                 <input className='search'placeholder='Search' ></input>
