@@ -139,7 +139,7 @@ class CreateNewAccount extends Component {
         
         return (
             <div className='createAccount'>
-                <a className="goBack" href="/"></a>
+                <a className="goBack" href="https://grzk8.github.io/to-do-list/#/"></a>
                 <h1>Create an new account</h1>
                 <form onSubmit={this.handleSubmitForm}>
                     {form}
