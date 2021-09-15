@@ -17,7 +17,7 @@ class List extends Component {
 
     logout() {
         localStorage.clear();
-        window.location.href = '/';
+        window.location.href = 'https://grzk8.github.io/to-do-list/#/';
     }
 
     loadData = () => {
