@@ -10,7 +10,7 @@ function App() {
 
   let routes = (
     <Switch>
-      <Route path='/to-do-list/' exact component={Login}/>
+      <Route path='/' exact component={Login}/>
       <Route path='/create_account/' component={NewAccount}/>
       <Route path='/main/' component={List}/>
     </Switch>

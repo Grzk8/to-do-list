@@ -17,7 +17,7 @@ class List extends Component {
 
     logout() {
         localStorage.clear();
-        window.location.href = '/to-do-list/';
+        window.location.href = '/';
     }
 
     loadData = () => {

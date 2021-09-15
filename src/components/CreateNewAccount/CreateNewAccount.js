@@ -139,7 +139,7 @@ class CreateNewAccount extends Component {
         
         return (
             <div className='createAccount'>
-                <a className="goBack" href="/to-do-list/"></a>
+                <a className="goBack" href="/"></a>
                 <h1>Create an new account</h1>
                 <form onSubmit={this.handleSubmitForm}>
                     {form}
