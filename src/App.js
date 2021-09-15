@@ -11,8 +11,8 @@ function App() {
   let routes = (
     <Switch>
       <Route path='/to-do-list/' exact component={Login}/>
-      <Route path='/to-do-list/create_account' component={NewAccount}/>
-      <Route path='/to-do-list/main' component={List}/>
+      <Route path='/create_account' component={NewAccount}/>
+      <Route path='/main' component={List}/>
     </Switch>
   );
   
