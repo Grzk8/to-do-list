@@ -121,7 +121,7 @@ class Login extends Component {
                 </form>
                 {redirect}
                 <p>or</p>
-                <a href='/to-do-list/create_account'>create an account</a>
+                <a href='/create_account'>create an account</a>
             </div>
         )
     }
